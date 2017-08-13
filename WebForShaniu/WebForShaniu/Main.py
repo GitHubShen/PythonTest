@@ -4,3 +4,5 @@ from django.shortcuts import render
 def CheckPassword(request):
     if request.POST and 'woaidaguanjia' == request.POST['Password'].lower():
         return render(request, 'Second.html')
+    else:
+        return render(request, 'Main.html')
