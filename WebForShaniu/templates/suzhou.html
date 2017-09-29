@@ -10,11 +10,10 @@
 	</style>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=aRpARkvGAmm4KFkGcN0MjTo3RmfeLxSE"></script>
 	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-	<title>Our Travel</title>
+	<title>SuZhou Travel</title>
 </head>
 <body>
 	<div id="allmap"></div>
-	<p>TODO Add picture or other</p>
 </body>
 </html>
 <script type="text/javascript">
@@ -22,7 +21,8 @@
 	map = new BMap.Map("allmap");
 	map.centerAndZoom(new BMap.Point(116.338897,40.011006), 5);
     map.addControl(new BMap.NavigationControl());
-	var data_info = [[116.59575,35.418399,"济宁"],[110.098586,34.516553,"2013年8月 西安"]];
+	var data_info = [[120.48745,31.300943,"天池山"],[120.635263,31.326931,"狮子林"]\
+	[120.59896,31.32176,"留园"],[120.634121,31.329144,"苏州博物馆"],];
 	var opts = {
 	  position : point,    // 指定文本标注所在的地理位置
 	  offset   : new BMap.Size(30, -30)    //设置文本偏移量
