@@ -40,7 +40,7 @@
 	    var marker = new BMap.Marker(point);  // 创建标注
 	    map.addOverlay(marker);              // 将标注添加到地图中
         if("藏书羊肉" == data_info[i][2]){
-            var label = new BMap.Label(data_info[i][2],{offset:new BMap.Size(20, 10)});
+            var label = new BMap.Label(data_info[i][2],{offset:new BMap.Size(20, -20)});
             marker.setLabel(label);
         }else{
             var label = new BMap.Label(data_info[i][2],{offset:new BMap.Size(20, -10)});
