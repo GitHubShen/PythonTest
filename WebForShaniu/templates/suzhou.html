@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:500px;}
+		p{margin-left:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=aRpARkvGAmm4KFkGcN0MjTo3RmfeLxSE"></script>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+	<title>Our Travel</title>
+</head>
+<body>
+	<div id="allmap"></div>
+	<p>TODO Add picture or other</p>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.338897,40.011006), 5);
+    map.addControl(new BMap.NavigationControl());
+	var data_info = [[116.59575,35.418399,"济宁"],[110.098586,34.516553,"2013年8月 西安"]];
+	var opts = {
+	  position : point,    // 指定文本标注所在的地理位置
+	  offset   : new BMap.Size(30, -30)    //设置文本偏移量
+	};
+	for(var i=0;i<data_info.length;i++){
+		var point = new BMap.Point(data_info[i][0],data_info[i][1]);
+	    var marker = new BMap.Marker(point);  // 创建标注
+	    map.addOverlay(marker);              // 将标注添加到地图中
+
+	    var label = new BMap.Label(data_info[i][2],{offset:new BMap.Size(20,-10)});
+	    marker.setLabel(label);
+	}
+</script>
+
+

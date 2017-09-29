@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^Travel', view.Travel),
     url(r'', include('blog.urls')),
     url(r'', include('comments.urls')),
+    url(r'^suzhou', view.suzhou),
 ]

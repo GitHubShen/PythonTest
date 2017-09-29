@@ -9,5 +9,8 @@ def EntryR(request):
     return HttpResponseRedirect('http://shaniu.site:8787')
 
 def Main(request):
-    return render(request, 'Main.html')
+    return render(request, 'Main.html', )
     #return HttpResponse("Love you!")
+
+def suzhou(request):
+    return render(request, "suzhou.html")
