@@ -26,11 +26,33 @@
 	[120.632066,31.300634,"沧浪亭"],[120.574907,31.316454,"寒山寺"],[120.855935,31.119287,"周庄"],
 	[120.725441,31.163773,"同里"],[120.627424,31.303623,"书院巷"],[120.609802,31.322674,"山塘街"]
 	,[120.615319,31.31924,"艺圃"]];
+	var opts = {
+				width : 250,     // 信息窗口宽度
+				height: 80,     // 信息窗口高度
+				title : "足迹" , // 信息窗口标题
+				enableMessage:true//设置允许信息窗发送短息
+			   };
+
 	for(var i=0;i<data_info.length;i++){
 		var point = new BMap.Point(data_info[i][0],data_info[i][1]);
 	    var marker = new BMap.Marker(point);  // 创建标注
 	    map.addOverlay(marker);              // 将标注添加到地图中
+	    var content = data_info[i][2];
+	    addClickHandler(content,marker);
 	}
+
+	function addClickHandler(content,marker){
+		marker.addEventListener("click",function(e){
+			openInfo(content,e)}
+		);
+	}
+	function openInfo(content,e){
+		var p = e.target;
+		var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+		var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+		map.openInfoWindow(infoWindow,point); //开启信息窗口
+	}
+
 	var data_info = [[120.6319,31.316697,"松鹤楼菜馆(观前街店)"],[120.640255,31.31881,"松鹤楼菜馆(平江路店)"],
 	[120.609838,31.316172,"松鹤楼菜馆(茉莉花店)"],[120.607737,31.324771,"松鹤楼菜馆(山塘街店)"],[120.631902,31.31634,"得月楼观前店"],
 	[120.699408,31.308638,"得月楼(李公堤店)"],[120.69549,31.308497,"洋洋中餐馆园区店"],[120.609568,31.322797,"赵元章肉骨烧"],
